@@ -28,7 +28,7 @@ everyone.disconnected(function(){
 everyone.now.distributeMessage = function(message){
 	everyone.now.receiveMessage(this.now.name, message);
 	messageCount++;
-	names[messageCount] = this.now.name;
+	names[messagesCount] = this.now.name;
 	messages[messageCount] = message;
 	console.log(messageCount + " messages");
 };
