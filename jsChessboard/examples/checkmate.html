@@ -1,0 +1,84 @@
+<html>
+<!-- ***** BEGIN LICENSE BLOCK *****
+ *
+ * Copyright 2008-2009 Jean-Christophe Sirot <sirot@xulfactory.org>
+ *
+ * This file is part of jsChessboard.
+ *
+ * jsChessboard is free software: you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License as published by the Free Software
+ * Foundation, either version 3 of the License, or (at your option) any later
+ * version.
+ *
+ * jsChessboard is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
+ * more details.
+ *
+ * You should have received a copy of the GNU General Public License along with
+ * jsChessboard. If not, see http://www.gnu.org/licenses/.
+ *
+ * ***** END LICENSE BLOCK ***** -->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1"></meta>
+  <title>Checkmate</title>
+  <style>
+      body {
+          font-size: 14px;
+      }
+      p {
+          max-width: 800px;
+      }
+      canvas {
+          border: 1px solid black
+      }
+      .moves {
+          font-weight: bold;
+      }
+      #hidden {
+          display: none;
+      }
+  </style>
+  <script type="text/javascript" src="../chessboard.js"></script>
+  <script type="text/javascript">
+    function play() {
+      try {
+        /* Set up the positon */
+        game = Chessboard.newGame();
+        game.clear();
+        game.set("wk", "g3");
+        game.set("wq", "f8");
+        game.set("bk", "g5");
+        game.set("bp", "e5");
+        game.set("bp", "f5")
+        game.set("bp", "g6");
+        game.set("bb", "d4");
+        game.set("bn", "a7");
+        game.draw("puzzle");
+
+        /* The puzzle solution */
+        game.move("Qd8, Kh6, Qh8, Kg5, Qh4");
+        game.draw("solution");
+      } catch (ex) {
+        alert(ex);
+      }
+    }
+
+    function unhide() {
+      var div = document.getElementById("hidden");
+      div.style.display = "block";
+      return false;
+    }
+  </script>
+ </head><body onload="play();">
+   <h3>Three moves to checkmate</h3>
+   <p>White checkmates in three moves.</p>
+   <canvas id="puzzle" width="250" height="250"></canvas>
+
+   <p>Click <a href="#" onclick="unhide();">here</a> to show the solution.</p>
+   <div id="hidden">
+     <p class="moves">1. Qd8+ Kh6 2. Qh8+ Kg5 3. Qh4#</p>
+     <canvas id="solution" width="250" height="250"></canvas>
+   </div>
+
+ </body></html>

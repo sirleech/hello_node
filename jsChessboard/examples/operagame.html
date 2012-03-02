@@ -1,0 +1,127 @@
+<html>
+<!-- ***** BEGIN LICENSE BLOCK *****
+ *
+ * Copyright 2008-2009 Jean-Christophe Sirot <sirot@xulfactory.org>
+ *
+ * This file is part of jsChessboard.
+ *
+ * jsChessboard is free software: you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License as published by the Free Software
+ * Foundation, either version 3 of the License, or (at your option) any later
+ * version.
+ *
+ * jsChessboard is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
+ * more details.
+ *
+ * You should have received a copy of the GNU General Public License along with
+ * jsChessboard. If not, see http://www.gnu.org/licenses/.
+ *
+ * ***** END LICENSE BLOCK ***** -->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1"></meta>
+  <title>Opera game</title>
+  <style>
+      body {
+          font-size: 14px;
+      }
+      p {
+          max-width: 800px;
+      }
+      canvas {
+          border: 1px solid black
+      }
+      .moves {
+          font-weight: bold;
+      }
+  </style>
+  <script type="text/javascript" src="../chessboard.js"></script>
+  <script type="text/javascript">
+    function play() {
+      try {
+        game = Chessboard.newGame();
+        game.move("e4, e5, Nf3, d6, d4, Bg4");
+        game.draw("board1");
+        game.move("dxe5, Bxf3, Qxf3, dxe5, Bc4, Nf6, Qb3, Qe7");
+        game.draw("board2");
+        game.move("Nc3, c6, Bg5, b5, Nxb5, cxb5, Bxb5, Nbd7, O-O-O, Rd8");
+        game.draw("board3");
+        game.move("Rxd7, Rxd7, Rd1, Qe6, Bxd7, Nxd7, Qb8, Nxb8, Rd8");
+        game.draw("board4");
+      } catch (ex) {
+        alert(ex);
+      }
+    }
+  </script>
+ </head><body onload="play();">
+   <h3>Paul Morphy - Duke of Brunswick and Count Isouard, Paris, 1858, Philidor
+   Defense</h3>
+   <p style="font-size: smaller;">Comments from wikipedia <a
+   href="http://en.wikipedia.org/wiki/Opera_game">Opera game</a> page</p>
+
+   <p class="moves">1. e4 e5 2. Nf3 d6 3. d4 Bg4(?)</p>
+   <p>Though censured today, this was standard theory at the time. Now 3...exd4
+   or 3...Nf6 are usual. 3...f5 is a more aggressive alternative.</p>
+   <canvas id="board1" width="200" height="200"></canvas>
+
+   <p class="moves">4. dxe5! Bxf3</p>
+   <p>If ... dxe5, then 5. Qxd8+ Kxd8 6. Nxe5 and White wins a pawn and Black
+   has lost the ability to castle. Black, however, did have the option of
+   4...Nd7 5.exd6 Bxd6, when he's down a pawn, but has some compensation in the
+   form of better development.</p>
+
+   <p class="moves">5. Qxf3 dxe5 6. Bc4 Nf6</p>
+   <p>This seemingly sound developing move runs into a surprising
+   refutation. After White's next move, both f7 and b7 will be under
+   attack. </p>
+
+   <p class="moves">7. Qb3! Qe7</p>
+   <p>Black's only good move. Almost all of Black's moves lead to checkmate,
+   for example 7. ... Nc6 8. Bxf7 Ke7 9. Qe6#. 7. ... Qd7 loses the rook to
+   8. Qxb7 followed by 9. Qxa8. Notice that Qe7 saves the rook with this
+   combination: 8. Qxb7 Qb4+ forcing the queen exchange saving the rook. Black
+   is forced to move the queen to e7 which blocks the f8 bishop and more
+   importantly impedes kingside castling. </p>
+   <canvas id="board2" width="200" height="200"></canvas>
+
+   <p class="moves">8. Nc3!</p>
+   <p>White prefers fast development to material. He declines to win a pawn
+   with 8. Qxb7 Qb4+ (the only way to avoid loss of the rook) 9. Qxb4, or to win
+   two with 8. Bxf7+ Kd8 (or 8. ... Qxf7 9. Qxb7 and now Black cannot avoid loss
+   of the rook) 9. Qxb7, preferring to mass his forces for a quick checkmate and
+   get back to the opera. </p>
+
+   <p class="moves">8. ...c6 9. Bg5 b5? 10. Nxb5!</p>
+   <p>Morphy chooses not to retreat the bishop, which would allow Black to gain
+   time for development. Black's move 9. ... b5 loses but it is difficult to
+   find anything better; for example 9 ... Na6 10.Bxf6 gxf6 11.Bxa6 bxa6 12.Qa4
+   Qb7 and Black's position is in shambles.</p>
+
+   <p class="moves">10... cxb5</p>
+   <p>Black could have played 10...Qb4+, which would have forced Morphy to
+   exchange queens, although White would retain a clearly won game</p>
+
+   <p class="moves"> 11. Bxb5+ Nbd7 12. 0-0-0</p>
+   <p>The combination of the bishop's pin on the knight and the open file for
+   the rook will lead to Black's defeat.</p>
+
+   <p class="moves">12... Rd8</p>
+   <canvas id="board3" width="200" height="200"></canvas>
+
+   <p class="moves">13. Rxd7! Rxd7 14. Rd1</p>
+   <p>Compare the activity of the White pieces with the idleness of the Black
+   pieces. </p>
+
+   <p class="moves">14... Qe6</p>
+   <p>Qe6 is an attempt to unpin the knight but the game is lost here.</p>
+
+   <p class="moves">15. Bxd7+ Nxd7</p>
+   <p>If ... Qxd7, then 16. Qb8+ Ke7 17. Qxe5+ Kd8 18. Bxf6+ gxf6 19. Qxf6+ Kc8 20. Rxd7 Kxd7 21. Qxh8 and White is clearly winning.</p>
+
+   <p class="moves">16. Qb8+!</p>
+   <p>Morphy finishes with a stylish queen sacrifice.</p>
+
+   <p class="moves">16... Nxb8 17. Rd8#</p>
+   <canvas id="board4" width="200" height="200"></canvas>
+ </body></html>

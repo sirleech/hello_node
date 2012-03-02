@@ -1,0 +1,65 @@
+<html>
+<!-- ***** BEGIN LICENSE BLOCK *****
+ *
+ * Copyright 2008-2009 Jean-Christophe Sirot <sirot@xulfactory.org>
+ *
+ * This file is part of jsChessboard.
+ *
+ * jsChessboard is free software: you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License as published by the Free Software
+ * Foundation, either version 3 of the License, or (at your option) any later
+ * version.
+ *
+ * jsChessboard is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
+ * more details.
+ *
+ * You should have received a copy of the GNU General Public License along with
+ * jsChessboard. If not, see http://www.gnu.org/licenses/.
+ *
+ * ***** END LICENSE BLOCK ***** -->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1"></meta>
+  <title>FEN samples</title>
+  <style>
+      body {
+          font-size: 14px;
+      }
+      p {
+          max-width: 800px;
+      }
+      canvas {
+          border: 1px solid black
+      }
+      .fen {
+          font-weight: bold;
+      }
+  </style>
+  <script type="text/javascript" src="../chessboard.js"></script>
+  <script type="text/javascript">
+    function play() {
+      try {
+        game1 = Chessboard.newGame();
+        game1.setFen("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR");
+        game1.draw("board1");
+        game2 = Chessboard.newGame();
+        game2.setFen("8/8/8/8/8/5B2/5K2/5N1k");
+        game2.draw("board2");
+        game3 = Chessboard.newGame();
+        game3.setFen("8/3p4/5R2/1RP1k1P1/8/3K4/8/8");
+        game3.draw("board3");
+      } catch (ex) {
+        alert(ex);
+      }
+    }
+  </script>
+  </head><body onload="play();">
+    <h3>Fen samples</h3>
+    <p>Starting position: <span class="fen">rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR</span></p>
+    <canvas id="board1" width="250" height="250"></canvas>
+    <p>Bishop and knight checkmate: <span class="fen">8/8/8/8/8/5B2/5K2/5N1k</span></p>
+    <canvas id="board2" width="250" height="250"></canvas>
+    <p>Easy endgame: <span class="fen">8/3p4/5R2/1RP1k1P1/8/3K4/8/8</span></p>
+    <canvas id="board3" width="250" height="250"></canvas>
+ </body></html>

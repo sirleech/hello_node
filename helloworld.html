@@ -3,13 +3,20 @@
 <title>nowjs test</title> 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script> 
 <script src="/nowjs/now.js"></script>
+<script src="https://ausbots.com.au/jsChessboard/chessboard.js"></script>
 
 <script>
 $(document).ready(function(){
   
   now.name = prompt("What's your name?", "");  
+
+	game = Chessboard.newGame();
+	game.draw("myboard");
+
   now.receiveMessage = function(name, message){
     $("#messages").append("<br>" + name + ": " + message);
+		game.move(message);
+		game.draw("myboard");
   }
   
   $("#send-button").click(function(){
@@ -18,10 +25,19 @@ $(document).ready(function(){
   });
   
 });
+
+  function showBoard() {
+    game = Chessboard.newGame();
+    game.move("e4, Nf6");
+    game.draw("myboard");
+  }
 </script>
 </head> 
  
 <body> 
+
+<canvas id="myboard" width="300" height="300"></canvas>
+
 <div id="messages"></div>
 <input type="text" id="text-input">
 <input type="button" value="Send" id="send-button">
